@@ -1,0 +1,11 @@
+node_modules/
+dist/
+*.log
+*.tsbuildinfo
+
+# Secrets — never commit
+.env
+.env.*
+
+# Voice audition takes (reference only; not played at runtime)
+public/narration/auditions/

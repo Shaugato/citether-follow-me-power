@@ -1,0 +1,128 @@
+{
+  "audition:coral-b05": {
+    "hash": "c5d07310c80b59a3a3ab6702072f4a6890d8be9d22c3c071b0a85aa3297c791e",
+    "voice": "coral",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 559244
+  },
+  "audition:coral-b07": {
+    "hash": "d76844b40464db1e90ae65b5f5b6e385fceed799b1156577724761e0edf8a250",
+    "voice": "coral",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 369644
+  },
+  "audition:coral-b14": {
+    "hash": "987efa195251192bd496b93d2dbc0fbb57c22127889e98cf4a87665704d9c44e",
+    "voice": "coral",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 609644
+  },
+  "audition:nova-b05": {
+    "hash": "1e378dd16f0a29a032b3cc3b6f2d2eb243dee09696d1b0e0fd50f4c5884d666b",
+    "voice": "nova",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 528044
+  },
+  "audition:nova-b07": {
+    "hash": "6231246574510e01701ea93a8146e5fa6856d582dc2a723e7d84b8351c268300",
+    "voice": "nova",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 312044
+  },
+  "audition:nova-b14": {
+    "hash": "0b3d55aeb1b7bba6227c7bea7e5db03f796d865ae13488ecf19af3e972327e22",
+    "voice": "nova",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 489644
+  },
+  "b00": {
+    "hash": "005ba26368107923fa886a662fdd67e38800118813c64468d046cbe3ac1f210e",
+    "voice": "coral",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 170444
+  },
+  "b01": {
+    "hash": "5fdf3ebc71a1d7b77495202a1e7a33ca346db7be8a0bab090783c333064755f6",
+    "voice": "coral",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 537644
+  },
+  "b02": {
+    "hash": "90f675156450b6fffcaaf80f9f07010249de2a20f4670d275d588d9af123a1d5",
+    "voice": "coral",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 484844
+  },
+  "b03": {
+    "hash": "653bc065066d2d116d1e8e44e186dac3df8493a3f53b00e4433b51d1830c7161",
+    "voice": "coral",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 549644
+  },
+  "b04": {
+    "hash": "0d08277481865902aa1c0606df484466034bfa78c34036763e5f2e3972bfca6b",
+    "voice": "coral",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 429644
+  },
+  "b05": {
+    "hash": "c5d07310c80b59a3a3ab6702072f4a6890d8be9d22c3c071b0a85aa3297c791e",
+    "voice": "coral",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 561644
+  },
+  "b06": {
+    "hash": "1be928310ff316408b6ae55483729509160d19e4a7fb85567bfe4a506890ed56",
+    "voice": "coral",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 290444
+  },
+  "b07": {
+    "hash": "d76844b40464db1e90ae65b5f5b6e385fceed799b1156577724761e0edf8a250",
+    "voice": "coral",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 369644
+  },
+  "b08": {
+    "hash": "c94b223ce4e7312521f4a2a830e814bf20faa45c265344521daa4973861706e4",
+    "voice": "coral",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 283244
+  },
+  "b09": {
+    "hash": "112e47bb6ae654c7cd3267900acf01eb73bf51d1a24ce8208f596234518c916d",
+    "voice": "coral",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 290444
+  },
+  "b10": {
+    "hash": "c276c489e1be2b9057a37cdb3066803af52c6ff327d63cf77706347054443b21",
+    "voice": "coral",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 415244
+  },
+  "b11": {
+    "hash": "00fc2efa42e57fde992b09b3a7e98cbb44ee70af7d5e2c3b91c8896d6f02b0c0",
+    "voice": "coral",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 422444
+  },
+  "b12": {
+    "hash": "0968d82f28b96815d4ddd3b5b7a33255cf86cd284dccfaae8ff4b34c927b60cc",
+    "voice": "coral",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 213644
+  },
+  "b13": {
+    "hash": "f4ed874cada6a6d5982309fc3825bc04bc2ca2c4abcdffbbf52916bcec711a40",
+    "voice": "coral",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 436844
+  },
+  "b14": {
+    "hash": "987efa195251192bd496b93d2dbc0fbb57c22127889e98cf4a87665704d9c44e",
+    "voice": "coral",
+    "model": "gpt-4o-mini-tts",
+    "bytes": 520844
+  }
+}
