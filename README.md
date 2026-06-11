@@ -2,7 +2,7 @@
 
 **A real-time 3D simulation of location-independent energy settlement.**
 
-🔗 **Live demo:** _coming soon_ — deploying… &nbsp;·&nbsp; ▶ **Watch with sound on** (click *“Start cinematic with narration”* — there's a synced voiceover).
+🔗 **Live demo: https://citether-sim.vercel.app** &nbsp;·&nbsp; ▶ **Watch with sound on** (click *“Start cinematic with narration”* — there's a synced voiceover).
 
 > An independent concept project, built out after a hackathon. On-screen figures are
 > **illustrative but internally consistent** — every number comes from a small deterministic
