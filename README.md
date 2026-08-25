@@ -1,142 +1,122 @@
-# citEther — Follow Me Power
+# citEther: Follow Me Power
 
-**A real-time 3D simulation of location-independent energy settlement.**
+A browser simulation of what would happen if the credit from your rooftop solar could follow you around the city instead of staying stuck at your home meter. The mechanism it models is a settlement layer: the grid still delivers every kilowatt hour of electricity, while a home's unused solar surplus becomes credit that is applied against energy the same person uses at another location.
 
-🔗 **Live demo: https://citether-sim.vercel.app** &nbsp;·&nbsp; ▶ **Watch with sound on** (click *“Start cinematic with narration”* — there's a synced voiceover).
+**Live: [citether-sim.vercel.app](https://citether-sim.vercel.app)**
 
-> An independent concept project, built out after a hackathon. On-screen figures are
-> **illustrative but internally consistent** — every number comes from a small deterministic
-> economics model, not random values.
+It runs for about three minutes and twenty seconds. Choose "Start cinematic with narration" for the voiceover, or "Start silent" to follow the captions. Use a desktop or laptop browser; the layout is not built for phones.
 
----
+## This is a concept simulation, not a product
 
-## What it is
+Read this before anything else.
 
-Today, a home's rooftop-solar **value is trapped at the meter**. After the household uses
-what it can and the battery is full, the surplus has only one option — export it to the grid
-for a near-zero feed-in tariff. Meanwhile, the *same person* pays high prices for energy
-**somewhere else**: charging an EV at the coast, running tools on a job site, helping a parent
-across town.
+- It settles nothing real. There is no billing, no ledger of record, no payment rail, no money.
+- It controls nothing real. No meter, inverter, battery, charger or grid asset is connected to it.
+- There is no backend, no database, no accounts, no API and no blockchain. It is a static page that runs entirely in the browser.
+- Every figure on screen is illustrative. The numbers come from one small deterministic model in this repository, built on assumed prices, not from market data, a trial or a pilot.
 
-**citEther adds a settlement layer.** That trapped surplus becomes **portable credits that
-follow the person** and settle against the energy they consume at other locations. Crucially:
+The purpose is to make an idea legible in three minutes. It is not a claim that the idea has been built, priced or validated.
 
-- **The grid still supplies the electricity** at every location.
-- **citEther settles the *value*** — credits, not literal electrons moving across the country.
-- Even after network fees and a platform margin, the net value **beats exporting for almost nothing**.
+## The problem it describes
 
-This repo is the explainer: a ~3:15 deterministic cinematic that teaches the idea in six stages
-— *problem → contradiction → breakthrough → use cases → economics → thesis* — with a dual-layer
-visual (physical grid vs. settlement credits), live ledger/event-log/Sankey overlays, and a warm
-voiceover.
+Australia has millions of homes with solar on the roof. On a sunny day a home generates more than it can use, the battery fills, and the surplus has one way out: export to the grid at a feed-in tariff worth a few cents.
 
-## Screenshots
+Meanwhile the same household pays a much higher price for energy everywhere else. Charging an EV at a coastal fast charger. Running tools on a job site. Helping a parent across town with their bill.
 
-| A use case (Mum's flat) | The closing thesis |
-|---|---|
-| ![Settling surplus solar value against Mum's flat — the grid powers her flat, citEther moves the value](docs/screenshots/use-case-mum.png) | ![End card: citEther — your energy follows you](docs/screenshots/end-card.png) |
+So the value is real and the need is real, but they cannot meet, because the value is attached to a meter at one address rather than to the person who owns it. citEther is the question that follows from that: what if your energy account travelled with you instead of sitting at your address?
 
-The economics beat shows the honest money math (gross → network fee → margin → net, vs. the weak feed-in alternative):
+## What the simulation shows
 
-![Settlement economics — a real Sankey with fees and margin skimmed, net still beats the feed-in tariff](docs/screenshots/economics-sankey.png)
+A dark isometric city with nine locations: a home, a parent's flat, a job site, a coastal EV charger, a hospital node, a community pod, a food bank, a local business and the wholesale grid. The camera moves through fifteen fixed beats:
 
-## Features
+1. **The problem.** One home with solar and a full battery. Its surplus can only be exported for near nothing, so the value stays at the address.
+2. **The contradiction.** The same person pays far more elsewhere. The simulation puts the two prices side by side.
+3. **The mechanism.** The surplus becomes settlement credit tied to an energy account rather than a meter.
+4. **The destinations.** Credit is applied at the parent's flat, the job site, the coastal charger, the food bank, a local business, the community pod and finally the wholesale grid as a fallback. A separate strand shows a nurse's EV supporting a constrained hospital node, kept deliberately apart from the household result so the two are never added into one headline.
+5. **The economics.** A breakdown of gross value, network fees and platform margin down to a household net figure, compared against what the same surplus would have earned as a feed-in tariff.
+6. **The closing statement.**
 
-- **15-beat cinematic** driven by a single deterministic GSAP timeline (195s story + 5s end-card hold) — identical on every play, safe to screen-record.
-- **Dual-layer visuals** that keep the concept honest: a calm blue *physical grid* layer always on underneath, and brighter cyan/gold *settlement credit* tokens that rise to citEther and settle back down (value, not electrons).
-- **Live explanatory overlays:** a running ledger, an accumulating timestamped event log, per-beat "why this decision?" cards, a mode chip, and a real **Sankey** economics breakdown — all derived from one economics model so the 3D and the numbers never disagree.
-- **Warm AI voiceover**, pre-generated and synced to the timeline (audio is the master clock when narration is on → zero A/V drift over a 3-minute take).
-- **Deterministic + fully offline at runtime** — no backend, no API keys, no network calls, no randomness.
-- **Recording mode** — one keystroke hides all UI for a clean capture.
+Two visual layers run at once and carry the central distinction. A blue layer is physical electricity moving on the grid. A brighter cyan and gold layer is settlement value moving between accounts. The point of the split is that credit moves, not electrons.
 
-## Run it locally
+Alongside the 3D scene, a DOM overlay shows a live household ledger, a timestamped settlement event log, a per-beat explanation card, a Sankey-style economics breakdown and captions.
 
-**Prerequisites:** Node.js 20+ and **pnpm** (via Corepack — `corepack enable`).
+### The numbers, and the assumptions behind them
+
+The on-screen figures are computed from one model in `src/scenario/`, so the 3D scene, the ledger and the economics panel can never disagree. For a single illustrative day the model assumes:
+
+- 19.5 kWh generated, 7.1 kWh used at home, leaving 12.4 kWh of surplus.
+- A feed-in tariff of $0.03/kWh, which values that surplus at $0.37.
+- Destination retail prices from $0.30/kWh at the community pod to $0.95/kWh on the job site.
+- A flat network fee of $0.08/kWh, reduced by 60% for a same-feeder local loop.
+- A 10% platform margin on the value after network fees.
+
+Those assumptions produce $6.63 gross, $0.82 in network fees, $0.58 in margin and $5.23 of household net value against the $0.37 feed-in alternative. The headline multiple in the simulation is a direct consequence of those inputs. Change the assumed prices and the story changes with them, which is exactly why they are all visible in one file rather than hard coded across the scene.
+
+## Technology
+
+Everything listed here is actually in the repository.
+
+| Area | What is used |
+| --- | --- |
+| Build | Vite 6, TypeScript 5.9 in strict mode |
+| UI | React 18, plain CSS in a single token stylesheet |
+| 3D | three.js 0.180 via React Three Fiber 8 and drei 9 |
+| Post-processing | @react-three/postprocessing, bloom only, at half resolution |
+| Animation | GSAP 3 drives one master timeline for the whole sequence |
+| State | Zustand 5 |
+| Tests | Vitest, 34 unit tests across 5 files covering the economics model, the event director and the narration controller |
+| Dev only | r3f-perf for a frame and draw call readout |
+
+Scale: 63 tracked TypeScript files totalling roughly 3,900 lines in `src/`, five of which are tests, plus a 660 line stylesheet.
+
+Some things worth knowing about how it is put together:
+
+- **One clock.** The entire sequence is a single GSAP timeline keyed to elapsed seconds, so every playthrough is identical and safe to screen record. When the voiceover is on, the audio element becomes the master clock and a requestAnimationFrame bridge seeks the timeline to the audio position each frame, which means the visuals cannot drift from the narration over a three minute take.
+- **Audio is never a hard dependency.** If the MP3 fails to load, the run continues silently with captions rather than erroring.
+- **Playback is gated behind a click.** Browsers block autoplay with sound, so the start overlay exists to make the first play a user gesture.
+- **The voiceover is pre-generated and committed.** `scripts/generate-narration.mjs` calls the OpenAI text to speech API and assembles a master track with ffmpeg, but that is a build-time step. Running the app needs no API key and makes no network calls beyond its own static assets. The generator hashes each line so a rerun only regenerates what changed.
+- **Performance choices.** Device pixel ratio is clamped, shadows are off, repeated geometry and particles are instanced and pooled, and there is a three step quality toggle for weaker hardware.
+
+## Running it locally
+
+Requires Node.js 20 or newer and pnpm.
 
 ```bash
 pnpm install
 pnpm dev        # http://127.0.0.1:4173
-pnpm build      # typecheck + production build to dist/
+pnpm build      # typecheck, then production build to dist/
 pnpm preview    # serve the production build
-pnpm test       # unit tests (economics, event director, narration)
+pnpm test       # unit tests
 ```
 
-On load, a start overlay gates playback (browser autoplay rules mean sound only starts on a click):
-
-- **▶ Start cinematic with narration** — plays the voiceover + visuals together.
-- **Start silent** — runs the timeline with no audio (captions carry the story).
-
-**Keyboard controls:**
+Controls once it is running:
 
 | Key | Action |
-|---|---|
-| `Space` | Play / pause (audio + visuals together when narration is on) |
-| `R` | Restart from 00:00 (re-syncs audio + visuals) |
-| `H` | Hide all UI for a clean recording frame (sound keeps playing) |
+| --- | --- |
+| `Space` | Play or pause |
+| `R` | Restart from the beginning |
+| `H` | Hide all overlay UI for a clean recording frame |
 
-There's also a quality toggle (bottom-right): `high` → `med` → `recording-safe`.
+There is also a voiceover toggle, a mute button, a volume slider and a quality selector in the corners.
 
-## Narration (optional regeneration)
+## Where this came from
 
-The voiceover is **pre-generated and committed**, so **the app needs no API key to run** —
-it plays `public/narration/voiceover-full.mp3` offline. The voice is **`coral`** (warm,
-expressive), generated with OpenAI's steerable **`gpt-4o-mini-tts`** model using a global
-delivery direction plus a per-beat `delivery` line. The spoken lines live in
-[`src/narration/narrationLines.json`](src/narration/narrationLines.json) — the single source
-shared by the app and the generator.
+The concept was created at **Watt The Hack 2026** in Melbourne by **Shaugato Paroi** with **Henry**, **Kirk Holt** and **Sam Sabey**. The team's demo ran late on the day and the project did not place.
 
-To regenerate (only needed if you change the script or want a different voice):
+This repository is what happened afterwards. Shaugato rebuilt the concept on his own as a 3D simulation with a voiceover, so the idea could be watched in three minutes rather than read in a pitch deck. The teammates above are credited for the concept; the code here is a solo build after the event.
 
-```bash
-node scripts/generate-narration.mjs --voice coral --skip-auditions
-```
+## Status and limitations
 
-This requires `OPENAI_API_KEY` in a `.env` file (git-ignored, never committed) and `ffmpeg`
-on PATH. The script is idempotent — it hashes each line and only re-bills clips that changed.
-See [`public/narration/README.md`](public/narration/README.md) for details (auditions, A/B, etc.).
+Honest list, in rough order of how much they matter.
 
-## Tech stack
+- **The economics are assumptions, not analysis.** The model treats the gap between a feed-in tariff and a destination retail price as capturable after a flat network fee and a platform margin. Real network tariffs, retailer margins, wholesale market settlement, metering rules and regulatory approval would all sit in that gap, and none of them are modelled. Nothing here demonstrates that the concept is commercially or legally workable.
+- **It is linear, not explorable.** There is no free camera and no way to change the inputs from the interface. You watch a fixed sequence; you do not run your own scenario. Changing the numbers means editing the scenario file and rebuilding.
+- **Desktop only.** There are no responsive breakpoints, so the overlay panels overlap and clip on narrow viewports and on phones.
+- **The voiceover is synthetic**, generated with OpenAI text to speech, not recorded by a person.
+- **The narration track is about 7.6 MB**, which is a slow first load on a poor connection.
+- **Build-time dependency advisories.** `pnpm audit` currently reports issues in transitive build dependencies. They do not affect the deployed static page, but the lockfile is due a refresh.
+- **The hospital vehicle-to-grid strand is the weakest part of the model.** It is deliberately kept separate from the household result, but its scale relative to the rooftop story reflects an assumed constrained-node price rather than anything observed.
 
-Vite · React 18 · TypeScript · [React Three Fiber](https://docs.pmnd.rs/react-three-fiber) ·
-[drei](https://github.com/pmndrs/drei) · [@react-three/postprocessing](https://github.com/pmndrs/react-postprocessing) (Bloom) ·
-[GSAP](https://gsap.com/) (timeline director) · [Zustand](https://github.com/pmndrs/zustand) (state).
-DOM overlay for crisp HUD text. OpenAI `gpt-4o-mini-tts` + `ffmpeg` for the (build-time) narration.
-
-## Project structure
-
-```
-src/
-  scenario/    # deterministic scenario + economics model + settlement events
-  cinematic/   # 15 beats, GSAP master timeline, camera rig, event director
-  scene/       # world, physical-grid layer, settlement layer, location landmarks
-  energy/      # credit-token + physical-grid flows, path manager
-  effects/     # meter cage, cage break, diesel generator, stress rings, account token
-  overlay/     # ledger, event log, Sankey, mode chip, captions, start overlay, narration controls
-  narration/   # narration script (shared JSON), audio controller, rAF sync bridge, fallback
-  state/       # Zustand store
-  lib/         # colors, curves, formatters, perf helpers
-scripts/       # generate-narration.mjs (build-time voiceover generator)
-public/        # narration master + per-beat sources
-```
-
-## Performance
-
-Tuned for modest hardware (target: NVIDIA Quadro P620, 4 GB — 1080p, 60 fps target / 40 fps floor).
-DPR clamped to 1–1.5; no real-time shadows; repeated geometry and particles are instanced/pooled;
-half-resolution Bloom on `high`. Three **quality modes** — `high` (full bloom), `med` (no bloom),
-`recording-safe` (fewer particles, strong emissive, capture-friendly).
-
-## Recording (for sharing)
-
-1. `pnpm build && pnpm preview`, browser full-screen at **1920×1080**, zoom 100%.
-2. Pick `recording-safe` quality if the capture machine can't hold 60 fps.
-3. Click **Start cinematic with narration**, then `H` for a clean frame, and let it play through the end card. (`R` re-syncs from 0 if needed.)
-4. Capture with **OBS** (or Windows **Win+G**) at 1080p60. To get the voiceover, enable **system/desktop audio** and verify on a short test clip.
-
-It's designed to also read **with sound off** (captions carry the story) — for muted social autoplay.
-
-## Credits & license
-
-Concept, design, and build by **Shaugato Paroi**. Narration voice generated with OpenAI TTS.
+## Licence
 
 Licensed under the [MIT License](LICENSE).

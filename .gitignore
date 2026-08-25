@@ -9,3 +9,5 @@ dist/
 
 # Voice audition takes (reference only; not played at runtime)
 public/narration/auditions/
+
+.vercel
